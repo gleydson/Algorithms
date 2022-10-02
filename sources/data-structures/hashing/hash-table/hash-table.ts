@@ -31,17 +31,6 @@ export class HashTable<T> {
     return this.table[index]?.value
   }
 
-  private findIndex (key: string) {
-    const tableLength = this.table.length
-    let index = key.charCodeAt(4) % tableLength
-
-    while (this.table[index]?.key !== key && this.table[index]?.key != null) {
-      index = (index + 1) % tableLength
-    }
-
-    return index
-  }
-
   has (key: string) {
     const index = this.findIndex(key)
     return Boolean(this.table[index]?.value)
@@ -75,5 +64,16 @@ export class HashTable<T> {
         this.set(aux[index].key, aux[index].value)
       }
     }
+  }
+
+  private findIndex (key: string) {
+    const tableLength = this.table.length
+    let index = key.charCodeAt(4) % tableLength
+
+    while (this.table[index]?.key !== key && this.table[index]?.key != null) {
+      index = (index + 1) % tableLength
+    }
+
+    return index
   }
 }
