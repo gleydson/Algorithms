@@ -1,0 +1,12 @@
+{
+  "name": "algorithms",
+  "packageManager": "yarn@3.2.3",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4",
+    "vite-tsconfig-paths": "^3.5.1",
+    "vitest": "^0.23.4"
+  }
+}
