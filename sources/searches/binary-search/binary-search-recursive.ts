@@ -8,7 +8,7 @@ function _binarySearch(
     return -1
   }
 
-  const middle = Math.floor((start + end) / 2)
+  const middle = Math.floor(start + (end - start) / 2)
   const pointer = orderedArrayOfNumbers[middle]
 
   if (itemToFind === pointer) {
