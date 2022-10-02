@@ -19,3 +19,16 @@ test('can be possible to check if key exists in hash table', () => {
   expect(hashTable.has('firstName')).toBeTruthy()
   expect(hashTable.has('lastName')).toBeFalsy()
 })
+
+test('can be possible to duplicate size of array when is full', () => {
+  const hashTable = new HashTable<string>(2)
+
+  expect(hashTable.size()).toEqual(2)
+
+  hashTable.set('firstName', 'John')
+  hashTable.set('lastName', 'Doe')
+  
+  expect(hashTable.size()).toEqual(4)
+  expect(hashTable.has('firstName')).toBeTruthy()
+  expect(hashTable.has('lastName')).toBeTruthy()
+})

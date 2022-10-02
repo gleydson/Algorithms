@@ -20,7 +20,7 @@ export class HashTable<T> {
 
       this.qtyItems += 1
 
-      if (this.qtyItems > this.table.length) {
+      if (this.qtyItems >= this.table.length) {
         this.rebuild()
       }
     }
@@ -34,6 +34,10 @@ export class HashTable<T> {
   has (key: string) {
     const index = this.findIndex(key)
     return Boolean(this.table[index]?.value)
+  }
+
+  size () {
+    return this.table.length
   }
 
   toString() {
