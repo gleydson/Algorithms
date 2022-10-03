@@ -15,7 +15,7 @@ export class HashTable<T> {
   set (key: string, value: T) {
     let index = this.findIndex(key)
 
-    if (!this.table[index]?.key) {
+    if (this.table[index] == null) {
       this.table[index] = { key, value }
 
       this.qtyItems += 1
@@ -41,15 +41,18 @@ export class HashTable<T> {
   }
 
   toString() {
-    let result = '[\n'
+    let result = '['
 
     for (let index = 0; index < this.table.length; index++) {
       if (this.table[index]?.key == null) {
-        result += `  [${index}: undefined]\n`        
+        result += `[${index}: undefined->undefined]`        
       } else {
-        result += `  [${index}: ${this.table[index].key}->${this.table[index].value}]\n`
+        result += `[${index}: ${this.table[index].key}->${this.table[index].value}]`
       }
+
+      result += index === this.table.length - 1 ? '' : ', '
     }
+
     result += ']'
 
     return result
