@@ -9,13 +9,13 @@ function _binarySearch(
   }
 
   const middle = Math.floor(start + (end - start) / 2)
-  const pointer = orderedArrayOfNumbers[middle]
+  const pivot = orderedArrayOfNumbers[middle]
 
-  if (itemToFind === pointer) {
+  if (itemToFind === pivot) {
     return middle
   }
 
-  if (itemToFind < pointer) {
+  if (itemToFind < pivot) {
     return _binarySearch(orderedArrayOfNumbers, itemToFind, start, middle - 1)
   }
   

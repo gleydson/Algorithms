@@ -4,13 +4,13 @@ export function binarySearchInterative(orderedArrayOfNumbers: number[], itemToFi
 
   while (end >= start) {
     const middle = Math.floor(start + (end - start) / 2)
-    const pointer = orderedArrayOfNumbers[middle]
+    const pivot = orderedArrayOfNumbers[middle]
 
-    if (pointer === itemToFind) {
+    if (pivot === itemToFind) {
       return middle
     }
 
-    if (itemToFind < pointer) {
+    if (itemToFind < pivot) {
       end = middle - 1
     } else {
       start = middle + 1
