@@ -1,6 +1,5 @@
 {
   "name": "algorithms",
-  "packageManager": "yarn@3.2.3",
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage"
