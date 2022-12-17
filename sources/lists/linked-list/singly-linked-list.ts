@@ -29,18 +29,16 @@ export class SinglyLinkedList<T> {
     if (node == null) {
       this.head = new Node(value)
       this._size++
+
       return
     }
 
-    while (node != null) {
-      if (node.next == null) {
-        node.next = new Node(value)
-        this._size++
-        break
-      }
-
+    while (node.next != null) {
       node = node.next
     }
+
+    node.next = new Node(value)
+    this._size++    
   }
 
   pop_front () {
@@ -66,6 +64,35 @@ export class SinglyLinkedList<T> {
     prev.next = undefined
     node = undefined
     this._size--
+  }
+
+  // TODO: 
+  insertAt (position: number, value: T) {
+    let currentPosition = 0
+    
+    if (position === currentPosition) {
+      const next = this.head
+      this.head = new Node(value, next)
+      this._size++
+      
+      return
+    }
+
+    currentPosition++
+    let node = this.head
+
+    while (node?.next != null) {
+      if (position === currentPosition) {
+        const next = node.next
+        node = new Node(value, next)
+        this._size++
+
+        return
+      }
+
+      node = node.next
+      currentPosition++
+    }
   }
 
   size () {
