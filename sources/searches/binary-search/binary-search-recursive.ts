@@ -1,27 +1,27 @@
-function _binarySearch(
-  orderedArrayOfNumbers: number[],
-  itemToFind: number,
+function _binary_search(
+  haystack: number[],
+  needle: number,
   start: number,
   end: number
-): number {
-  if (start > end) {
-    return -1
+): boolean {
+  if (start >= end) {
+    return false
   }
 
   const middle = Math.floor(start + (end - start) / 2)
-  const pivot = orderedArrayOfNumbers[middle]
+  const pivot = haystack[middle]
 
-  if (itemToFind === pivot) {
-    return middle
+  if (needle === pivot) {
+    return true
   }
 
-  if (itemToFind < pivot) {
-    return _binarySearch(orderedArrayOfNumbers, itemToFind, start, middle - 1)
+  if (pivot > needle) {
+    return _binary_search(haystack, needle, start, middle)
   }
   
-  return _binarySearch(orderedArrayOfNumbers, itemToFind, middle + 1, end)
+  return _binary_search(haystack, needle, middle + 1, end)
 }
 
-export function binarySearchRecursive(orderedArrayOfNumbers: number[], itemToFind: number) {
-  return _binarySearch(orderedArrayOfNumbers, itemToFind, 0, orderedArrayOfNumbers.length - 1)
+export function binary_search_recursive(haystack: number[], needle: number) {
+  return _binary_search(haystack, needle, 0, haystack.length)
 }

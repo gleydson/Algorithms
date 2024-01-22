@@ -1,21 +1,19 @@
-export function binarySearchInterative(orderedArrayOfNumbers: number[], itemToFind: number) {
+export function binary_search_interative(haystack: number[], needle: number): boolean {
   let start = 0
-  let end = orderedArrayOfNumbers.length - 1
+  let end = haystack.length
 
-  while (end >= start) {
+  do {
     const middle = Math.floor(start + (end - start) / 2)
-    const pivot = orderedArrayOfNumbers[middle]
-
-    if (pivot === itemToFind) {
-      return middle
-    }
-
-    if (itemToFind < pivot) {
-      end = middle - 1
+    const pivot = haystack[middle]
+    
+    if (pivot === needle) {
+      return true
+    } else if (pivot > needle) {
+      end = middle
     } else {
       start = middle + 1
     }
-  }
+  } while (start < end)
 
-  return -1
+  return false
 }

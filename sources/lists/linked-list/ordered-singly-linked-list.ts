@@ -1,12 +1,4 @@
-class Node<T> {
-  data: T
-  next?: Node<T>
-
-  constructor (data: T, next?: Node<T>) {
-    this.data = data
-    this.next = next
-  }
-}
+import { Node } from "./type"
 
 export class OrderedSinglyLinkedList<T> {
   private head?: Node<T>
